@@ -14,9 +14,9 @@ The working rules come from the rules files in my own projects: what the agent d
 
 Three more files that go with AGENTS.md. They cover one change, from the request to the review.
 
-- [`definition.md`](definition.md): the four lines I write before any task.
+- [`definition.md`](definition.md): the four lines I write before any task, with what makes each one work and a real example.
 - [`plan-template.md`](plan-template.md): the shape of a plan that the agent writes and I comment on. The task steps follow [Superpowers](https://github.com/obra/superpowers). The constraints, the review focus and the last section come from my own plans.
-- [`prompts.md`](prompts.md): six prompts for a change, the review prompt for a second model, and one prompt I use before a task that matters.
+- [`prompts.md`](prompts.md): six prompts for a change, a review prompt for a change and one for a design, and one prompt I use before a task that matters.
 
 The order is: definition, plan, my comments, work, evidence, fresh review.
 
