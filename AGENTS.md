@@ -11,10 +11,10 @@ Run one test class while you work, and the full suite before you report. Stop th
 
 ## Before you write code
 
-- Ask before you write code when a request can be read in more than one way.
-- Write a plan and wait for my approval when a change touches 3 or more files, or changes the architecture. The plan goes to `docs/plans/YYYY-MM-DD-<topic>.md`.
+- Ask before you write code when two readings of the request would lead to different results.
+- Write a plan and wait for my approval when a change touches the public API, the database schema, authentication or the architecture, or more than 3 files. The plan goes to `docs/plans/YYYY-MM-DD-<topic>.md`.
 - Copy the pattern of the closest existing feature. `OrdersController`, `OrderService` and `OrderServiceTests` are the reference set.
-- The existing code wins over this file. Where the two disagree, follow the code and tell me.
+- For structure, paths and conventions, follow the existing code over this file, and tell me where they disagree. The boundaries below always hold.
 
 ## While you write code
 
@@ -25,9 +25,9 @@ Run one test class while you work, and the full suite before you report. Stop th
 ## Done means
 
 - The build and the tests pass, and you ran them in this session. Report each command and its result.
-- New behavior has a unit test and an integration test.
+- New behavior has a unit test. A change that crosses the API, the database or another service also has an integration test.
 - You listed the edge cases the change adds, and the test that covers each one.
-- You said where you left the plan, and why.
+- If the change had a plan, you said where you left it, and why.
 - You said what you did not verify.
 
 ## Boundaries
@@ -42,7 +42,7 @@ Never:
 
 Ask first:
 
-- Before you delete or overwrite a file.
+- Before you delete a file, or discard changes you did not make.
 - Before you add a NuGet or npm package.
 - Before you change `global.json`, `NuGet.config`, `Directory.Build.props`, `.editorconfig` or `.github/workflows/*`.
 - Before you push, force-push or amend a commit.
