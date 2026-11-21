@@ -12,6 +12,8 @@ The working rules come from the rules files in my own projects: what the agent d
 
 ## Which tools read it
 
+More than twenty tools read `AGENTS.md`. The full list is at [agents.md](https://agents.md), the site of the format. Here is what the common ones need.
+
 - **Codex and Cursor** read `AGENTS.md` with no setup.
 - **GitHub Copilot** reads it in the coding agent and in Copilot CLI. Not every Copilot feature supports it yet.
 - **Claude Code** (version 2.1.277 or later) reads it when the project has no `CLAUDE.md` or `CLAUDE.local.md`. If you keep a `CLAUDE.md`, put one line in it: `@AGENTS.md`.
@@ -24,6 +26,10 @@ The working rules come from the rules files in my own projects: what the agent d
   }
 }
 ```
+
+- **Aider** needs one line in `.aider.conf.yml`: `read: AGENTS.md`.
+
+In a monorepo you can put a second `AGENTS.md` in a subproject, such as `client/`. The agent follows the file closest to the code it edits, and what you say in chat overrides every file.
 
 ## Why it is short
 
@@ -45,7 +51,8 @@ I had Claude read the `AGENTS.md` files of twelve large open-source repos on 21 
 
 ## What I left out
 
-- A directory tree and facts the agent can read from the repo itself. In the ETH tests, repo overviews did not help.
+- A project overview. The site of the format lists it among the suggested sections. I left it out because repo overviews did not help the agents in the ETH tests.
+- A directory tree and facts the agent can read from the repo itself.
 - Style rules. The formatter and the analyzers enforce those.
 - Advice that fits any project, such as "write clean code".
 - Lines the agent wrote by itself. The agent proposes a line, and I decide.
