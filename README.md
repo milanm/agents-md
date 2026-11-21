@@ -10,6 +10,16 @@ The working rules come from the rules files in my own projects: what the agent d
 2. Replace the commands, the paths and the decisions with your own.
 3. Delete every line your agent gets right without it.
 
+## Starter kit
+
+Three more files that go with AGENTS.md. They cover one change, from the request to the review.
+
+- [`definition.md`](definition.md): the four lines I write before any task.
+- [`plan-template.md`](plan-template.md): the shape of a plan that the agent writes and I comment on. The task steps follow [Superpowers](https://github.com/obra/superpowers). The constraints, the review focus and the last section come from my own plans.
+- [`prompts.md`](prompts.md): six prompts for a change, the review prompt for a second model, and one prompt I use before a task that matters.
+
+The order is: definition, plan, my comments, work, evidence, fresh review.
+
 ## Which tools read it
 
 More than twenty tools read `AGENTS.md`. The full list is at [agents.md](https://agents.md), the site of the format. Here is what the common ones need.
