@@ -9,6 +9,7 @@ The working rules come from the rules files in my own projects: what the agent d
 1. Copy [AGENTS.md](AGENTS.md) to the root of your repo.
 2. Replace the commands, the paths and the decisions with your own.
 3. Delete every line your agent gets right without it.
+4. Move a line into a check when a check can hold it. See [What a check can hold instead](#what-a-check-can-hold-instead).
 
 ## Starter kit
 
@@ -66,6 +67,22 @@ I had Claude read the `AGENTS.md` files of twelve large open-source repos on 21 
 - Style rules. The formatter and the analyzers enforce those.
 - Advice that fits any project, such as "write clean code".
 - Lines the agent wrote by itself. The agent proposes a line, and I decide.
+
+## What a check can hold instead
+
+An agent can skip a line in this file and nothing fails. A check fails every time the rule is broken. So when I correct an agent, the fix goes to the first of these that can hold it: the design, a type, an analyzer or CI check whose error names the fix, a test, and only then a line here.
+
+Three lines in my file have a check that can take over.
+
+| Line in AGENTS.md | Check |
+|---|---|
+| Package versions live in `Directory.Packages.props`, never in a `.csproj`. | Central Package Management. A version in a `.csproj` fails the restore with [NU1008](https://learn.microsoft.com/nuget/reference/errors-and-warnings/nu1008), and the error says where the version belongs. |
+| Use `DateTime.UtcNow`, never `DateTime.Now`. | [BannedApiAnalyzers](https://github.com/dotnet/roslyn/blob/main/src/RoslynAnalyzers/Microsoft.CodeAnalysis.BannedApiAnalyzers/BannedApiAnalyzers.Help.md). Put `P:System.DateTime.Now;Use DateTime.UtcNow` in `BannedSymbols.txt` and set RS0030 as an error. |
+| `appsettings.*.local.json` and `secrets.json` stay out of git. | `.gitignore` for the two names, and [push protection](https://docs.github.com/en/code-security/concepts/secret-security/push-protection) on GitHub for secrets in a known format. |
+
+A line leaves the file once its check runs in CI. The other lines stay as text because they are judgment calls. A check cannot tell that a test was weakened to get a green run.
+
+The order comes from the `correct` skill in [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan.
 
 ## Two warnings
 

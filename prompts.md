@@ -18,6 +18,7 @@ A fresh session does the review. It gets the plan and the diff, and it never saw
 ```
 Review this change as someone who did not write it.
 You have the plan and the diff. Do not change any files.
+You may run the build, the tests and any command that only reads.
 
 1. Start with the "Review focus" list in the plan.
 2. Check that every requirement is done, that each listed edge case has a test,
@@ -25,14 +26,16 @@ You have the plan and the diff. Do not change any files.
 3. Report only what affects correctness or a stated requirement. Leave style out.
 4. For each finding give the file and line, what goes wrong,
    the input or state that shows it, and what it costs if it ships.
-5. Sort the findings into three lists: fix before release, can wait, fine as it is.
-6. List what you did not check.
-7. End with a verdict: ship, ship after the fixes, or do not ship.
+5. Mark each finding "ran" or "read". "Ran" means you ran a command and saw it fail,
+   so paste the command and its output. "Read" means you traced it in the code.
+6. Sort the findings into three lists: fix before release, can wait, fine as it is.
+7. List what you did not check.
+8. End with a verdict: ship, ship after the fixes, or do not ship.
 ```
 
 Then comes one fix pass, and every fix starts with a test that fails. The three lists stay in the repo, so the next session knows what was decided.
 
-A reviewer who is asked for problems finds some in sound work too. So I fix the first list and decide on the rest.
+A reviewer who is asked for problems finds some in sound work too. So I fix the first list and decide on the rest. A finding marked "ran" comes with its proof. A finding marked "read" is a claim, and I check it before I change any code.
 
 ## Review of a design
 
@@ -70,4 +73,5 @@ I have not measured these prompts against other wordings. The two review prompts
 - My own plans and review notes.
 - [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices): a reviewer in a fresh context sees only the diff and the criteria. It reports gaps and leaves style out, and not every finding needs a fix.
 - [Superpowers](https://github.com/obra/superpowers), the code reviewer template: the file and line, why the finding matters, a clear verdict, and a list of what the reviewer set aside.
+- [pstack](https://github.com/cursor/plugins/tree/main/pstack), the `interrogate` skill: a finding that a run proves is worth more than one the reviewer only argues for.
 - [Custom Code Review rules for Codex](https://developers.openai.com/blog/custom-code-review-rules-for-codex): a finding names the risk and the rule behind it, and the review rules live in AGENTS.md.

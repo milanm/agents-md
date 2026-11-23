@@ -59,4 +59,4 @@ Do not reopen these without a concrete reason.
 
 ## When I correct you
 
-Find the root cause and propose one line for this file. I decide whether it goes in.
+Find the root cause. If a type, an analyzer, a test or a CI check can stop the mistake, propose that check. Propose a line for this file only when nothing can check the rule. I decide what goes in.
