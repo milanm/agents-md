@@ -29,6 +29,7 @@ Run one test class while you work, and the full suite before you report. Stop th
 - You listed the edge cases the change adds, and the test that covers each one.
 - If the change had a plan, you said where you left it, and why.
 - You said what you did not verify.
+- The pull request description is 10 lines or fewer: what changed and why, how to check it, and where the reviewer should start. The rest of the report goes in a comment.
 
 ## Boundaries
 

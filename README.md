@@ -1,6 +1,6 @@
 # My AGENTS.md
 
-This is the cleaned-up version of the rules file I keep in my projects. It has 62 lines.
+This is the cleaned-up version of the rules file I keep in my projects. It has 63 lines.
 
 The working rules come from the rules files in my own projects: what the agent does before a change, during it and after it, what it must never do, and what happens when I correct it. The project lines (commands, paths, class names, decisions) come from a typical .NET API of mine, with the names changed. Replace them with yours.
 
