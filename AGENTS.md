@@ -39,7 +39,7 @@ Never:
 - Call a live third-party API or use a production secret in a test. Use the fakes in `tests/Fakes/`.
 - Delete, skip or weaken a test to get a green run.
 - Edit generated code (`*.g.cs`, `Migrations/*.Designer.cs`). Change the source and generate it again.
-- Add a `Co-Authored-By` trailer or a "Generated with" footer to a commit or a pull request. Commit as the configured git user.
+- Add a `Co-Authored-By` trailer or a "Generated with" footer to a commit or a pull request. Commit as the configured git user: whoever commits owns the change. If the project has an AI disclosure policy, follow that policy instead.
 
 Ask first:
 
